@@ -1,0 +1,16 @@
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\DAL.deps.json
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\DAL.dll
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\DAL.pdb
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\BO.dll
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\System.Data.SqlClient.dll
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\BO.pdb
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\bin\Debug\netcoreapp2.0\System.Data.SqlClient.xml
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.csprojResolveAssemblyReference.cache
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfoInputs.cache
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo.cs
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.csproj.CopyComplete
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.dll
+C:\Users\monse\Documents\GitHub\ccnet-api\api\DAL\obj\Debug\netcoreapp2.0\DAL.pdb
