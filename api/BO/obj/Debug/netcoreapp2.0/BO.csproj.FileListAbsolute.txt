@@ -1,9 +1,0 @@
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\bin\Debug\netcoreapp2.0\BO.deps.json
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\bin\Debug\netcoreapp2.0\BO.dll
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\bin\Debug\netcoreapp2.0\BO.pdb
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\obj\Debug\netcoreapp2.0\BO.csprojResolveAssemblyReference.cache
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\obj\Debug\netcoreapp2.0\BO.csproj.CoreCompileInputs.cache
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\obj\Debug\netcoreapp2.0\BO.AssemblyInfoInputs.cache
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\obj\Debug\netcoreapp2.0\BO.AssemblyInfo.cs
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\obj\Debug\netcoreapp2.0\BO.dll
-C:\Users\monse\Documents\GitHub\ccnet-api\api\BO\obj\Debug\netcoreapp2.0\BO.pdb
