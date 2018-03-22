@@ -5256,7 +5256,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "BO": "1.0.0"
+          "BO": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "System.Data.SqlClient": "4.4.0"
         },
         "compile": {
           "bin/placeholder/DAL.dll": {}
