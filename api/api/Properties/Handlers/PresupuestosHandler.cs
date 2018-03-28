@@ -2,7 +2,9 @@
 using DAL;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace api.Properties.Handlers
 {
@@ -28,6 +30,17 @@ namespace api.Properties.Handlers
         public void SaveChildren(IEnumerable<PresupuestoItem> items)
         {
             PresupuestoItemDAL.SaveChildren(items);
+        }
+
+        public IEnumerable<Presupuesto> GetAll(Guid id)
+        {
+            IEnumerable<Presupuesto> presupuestos =  PresupuestosDAL.GetChildren(id);
+            foreach(Presupuesto presupuesto in presupuestos)
+            {
+                IEnumerable<PresupuestoItem> items =  PresupuestoItemDAL.GetChildren(presupuesto.Id);
+                presupuesto.Items = items.ToList();
+            }
+            return presupuestos;
         }
     }
 }

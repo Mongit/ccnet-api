@@ -8,5 +8,6 @@ namespace api.Properties.Handlers
     {
         Guid Save(Presupuesto model);
         void SaveChildren(IEnumerable<PresupuestoItem> items);
+        IEnumerable<Presupuesto> GetAll(Guid id);
     }
 }
