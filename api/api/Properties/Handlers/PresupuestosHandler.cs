@@ -46,7 +46,8 @@ namespace api.Properties.Handlers
         public Presupuesto Update(Guid id, Presupuesto model)
         {
             this.SaveChildren(model.Items);
-            throw new NotImplementedException();
+            BO.Presupuesto modelUpdated = PresupuestosDAL.Update(id, model);
+            return modelUpdated;
         }
     }
 }

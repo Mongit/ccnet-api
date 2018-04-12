@@ -81,7 +81,19 @@ namespace DAL
 
         public Presupuesto Update(Guid id, Presupuesto model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);
+            
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, model.Id));
+            cmd.Parameters.Add(GetParam("@cantidad", SqlDbType.Decimal, model.Cantidad));
+            cmd.Parameters.Add(GetParam("@descripcion", SqlDbType.VarChar, model.Descripcion));
+            cmd.Parameters.Add(GetParam("@porcentajeGastos", SqlDbType.Decimal, model.PorcentajeGastos));
+            cmd.Parameters.Add(GetParam("@porcentajeGanancia", SqlDbType.Decimal, model.PorcentajeGanancia));
+            cmd.Parameters.Add(GetParam("@porcentajeIVA", SqlDbType.Decimal, model.PorcentajeIVA));
+            cmd.Parameters.Add(GetParam("@cotizacionId", SqlDbType.UniqueIdentifier, model.CotizacionId));
+            
+            ExecuteNonQuery(cmd);
+
+            return model;
         }
     }
 }
