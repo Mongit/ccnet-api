@@ -51,7 +51,7 @@ namespace api.Properties.Models
         [Required]
         [JsonProperty(PropertyName = "cotizacionId")]
         public Guid CotizacionId { get; set; }
-        [JsonProperty(PropertyName = "presupuestosItem")]
+        [JsonProperty(PropertyName = "items")]
         public PresupuestoItemModel[] PresupuestosItem;
 
         public BO.Presupuesto GetBusinessObject()
