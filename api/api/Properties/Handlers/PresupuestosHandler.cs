@@ -42,5 +42,11 @@ namespace api.Properties.Handlers
             }
             return presupuestos;
         }
+
+        public Presupuesto Update(Guid id, Presupuesto model)
+        {
+            this.SaveChildren(model.Items);
+            throw new NotImplementedException();
+        }
     }
 }

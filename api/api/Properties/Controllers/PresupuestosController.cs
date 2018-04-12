@@ -53,5 +53,20 @@ namespace api.Properties.Controllers
                 throw ex;
             }
         }
+
+        [HttpPut("{id}")]
+        public string Put(Guid id, [FromBody]PresupuestoModel model)
+        {
+            try
+            {
+                BO.Presupuesto modelUpdated = PresupuestosHandler.Update(id, model.GetBusinessObject());
+                return string.Format("Se modifico exitosamente: {0}, value = {1}", id, modelUpdated);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

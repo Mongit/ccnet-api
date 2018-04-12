@@ -6,6 +6,8 @@ namespace api.Properties.Models
 {
     public class PresupuestoItemModel
     {
+        [JsonProperty(PropertyName = "id")]
+        public Guid Id { get; set; }
         [Required]
         [JsonProperty(PropertyName = "cantidad")]
         public decimal Cantidad { get; set; }
@@ -22,6 +24,7 @@ namespace api.Properties.Models
         public BO.PresupuestoItem GetBusinessObject(Guid presupuestoId)
         {
             BO.PresupuestoItem item = new BO.PresupuestoItem();
+            if (Id != Guid.Empty) item.Id = Id;
             item.Cantidad = Cantidad;
             item.Descripcion = Descripcion;
             item.Precio = Precio;
@@ -33,6 +36,8 @@ namespace api.Properties.Models
 
     public class PresupuestoModel
     {
+        [JsonProperty(PropertyName = "id")]
+        public Guid Id { get; set; }
         [Required]
         [JsonProperty(PropertyName = "cantidad")]
         public decimal Cantidad { get; set; }
@@ -57,6 +62,7 @@ namespace api.Properties.Models
         public BO.Presupuesto GetBusinessObject()
         {
             BO.Presupuesto presupuesto = new BO.Presupuesto();
+            presupuesto.Id = Id == Guid.Empty ? presupuesto.Id : Id;
             presupuesto.CotizacionId = CotizacionId;
             presupuesto.Cantidad = Cantidad;
             presupuesto.Descripcion = Descripcion;
