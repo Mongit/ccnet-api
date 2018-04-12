@@ -49,5 +49,11 @@ namespace api.Properties.Handlers
             BO.Presupuesto modelUpdated = PresupuestosDAL.Update(id, model);
             return modelUpdated;
         }
+
+        public void Delete(Guid id)
+        {
+            PresupuestoItemDAL.DeleteChildren(id);
+            PresupuestosDAL.Delete(id);
+        }
     }
 }

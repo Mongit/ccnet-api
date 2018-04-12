@@ -68,5 +68,12 @@ namespace api.Properties.Controllers
                 throw ex;
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            PresupuestosHandler.Delete(id);
+            return new ObjectResult(id);
+        }
     }
 }

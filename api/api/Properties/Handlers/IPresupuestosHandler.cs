@@ -10,5 +10,6 @@ namespace api.Properties.Handlers
         void SaveChildren(IEnumerable<PresupuestoItem> items);
         IEnumerable<Presupuesto> GetAll(Guid id);
         Presupuesto Update(Guid id, Presupuesto model);
+        void Delete(Guid id);
     }
 }
