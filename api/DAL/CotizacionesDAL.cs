@@ -113,5 +113,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Cotizacion> GetAll(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

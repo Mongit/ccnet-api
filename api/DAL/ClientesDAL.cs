@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace DAL
 {
@@ -14,22 +13,72 @@ namespace DAL
         {
         }
 
-        public IEnumerable<Cliente> GetAll()
+        public IEnumerable<Cliente> GetAll(out int totalPages, int pageNumber = 1, int pageSize = 100)
         {
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Clientes");
-
-            List<Cliente> list = new List<Cliente>();
-            Action<SqlDataReader> action = (dr =>
+            try
             {
-                while (dr.Read())
+                using(SqlCommand cmd = new SqlCommand(SqlQueries.GET_ALL_SP))
                 {
-                    list.Add(Load(dr));
-                }
-            });
-            ExecuteDataReader(cmd, action);
-            return list;
+                    cmd.CommandType = CommandType.StoredProcedure;
 
+                    SqlParameter pn = GetParam("@PageNumber", SqlDbType.Int, pageNumber);
+                    SqlParameter ps = GetParam("@PageSize", SqlDbType.Int, pageSize);
+                    SqlParameter tp = GetParam("@TotalPages", SqlDbType.Int, 0);
+                    tp.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(pn);
+                    cmd.Parameters.Add(ps);
+                    cmd.Parameters.Add(tp);
+
+                    List<Cliente> list = new List<Cliente>();
+                    Action<SqlDataReader> action = (dr =>
+                    {
+                        while (dr.Read())
+                        {
+                            list.Add(Load(dr));
+                        }
+                    });
+
+                    ExecuteDataReader(cmd, action);
+
+                    totalPages = (int)tp.Value;
+
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
+
+        //public IEnumerable<Cliente> GetAll(out int totalPages, int pageNumber = 1, int pageSize = 100)
+        //{
+        //    SqlCommand cmd = new SqlCommand(SqlQueries.GET_ALL_SP);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+
+        //    SqlParameter pn = GetParam("@PageNumber", SqlDbType.Int, pageNumber);
+        //    SqlParameter ps = GetParam("@PageSize", SqlDbType.Int, pageSize);
+        //    SqlParameter tp = GetParam("@TotalPages", SqlDbType.Int, 0);
+        //    tp.Direction = ParameterDirection.Output;
+        //    cmd.Parameters.Add(pn);
+        //    cmd.Parameters.Add(ps);
+        //    cmd.Parameters.Add(tp);
+
+        //    List<Cliente> list = new List<Cliente>();
+        //    Action<SqlDataReader> action = (dr =>
+        //    {
+        //        while (dr.Read())
+        //        {
+        //            list.Add(Load(dr));
+        //        }
+        //    });
+
+        //    ExecuteDataReader(cmd, action);
+
+        //    totalPages = (int)tp.Value;
+
+        //    return list;
+        //}
 
         public override Cliente Load(SqlDataReader dr)
         {

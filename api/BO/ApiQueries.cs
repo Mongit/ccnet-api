@@ -17,7 +17,7 @@ namespace BO
         {
             TABLE_NAME = tableName;
             SAVE_SP = string.Format("SAVE_{0}", TABLE_NAME);
-            GET_ALL_SP = string.Format("GET_ALL{0}", TABLE_NAME);
+            GET_ALL_SP = string.Format("GET_ALL_{0}", TABLE_NAME);
             SQL_DELETE_ONE = string.Format("DELETE FROM {0} WHERE Id = @id", TABLE_NAME);
             SQL_GET_ONE = string.Format("SELECT * FROM {0} WHERE Id = @id", TABLE_NAME);
             UPDATE_SP = string.Format("UPDATE_{0}", TABLE_NAME);

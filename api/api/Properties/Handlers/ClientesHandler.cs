@@ -23,9 +23,9 @@ namespace api.Properties.Handlers
             return savedId;
         }
 
-        IEnumerable<Cliente> IClientesHandler.GetAll()
+        public IEnumerable<Cliente> GetAll(out int totalPages, int pageNumber, int pageSize)
         {
-            return ClientesDAL.GetAll();
+            return ClientesDAL.GetAll(out totalPages, pageNumber, pageSize);
         }
 
         public Cliente GetOne(Guid id)

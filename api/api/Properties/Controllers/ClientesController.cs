@@ -3,7 +3,7 @@ using api.Properties.Models;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
+using System.Dynamic;
 
 namespace api.Properties.Controllers
 {
@@ -18,13 +18,19 @@ namespace api.Properties.Controllers
             Log = log;
             ClientesHandler = clientesHandler;
         }
-        // GET 
-        [HttpGet]
-        public IEnumerable<BO.Cliente> Get()
+        // GET
+        [HttpGet("{pageNumber}/{pageSize}")]
+        public IActionResult Get(int pageNumber, int pageSize)
         {
             try
             {
-                return ClientesHandler.GetAll();
+                var clientes = ClientesHandler.GetAll(out int totalPages, pageNumber, pageSize);
+
+                dynamic objeto = new ExpandoObject();
+                objeto.totalPages = totalPages;
+                objeto.clientes = clientes;
+
+                return new ObjectResult(objeto);
             }
             catch (Exception ex)
             {

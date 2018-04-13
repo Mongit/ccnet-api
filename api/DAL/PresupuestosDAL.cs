@@ -95,5 +95,10 @@ namespace DAL
 
             return model;
         }
+
+        public IEnumerable<Presupuesto> GetAll(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
