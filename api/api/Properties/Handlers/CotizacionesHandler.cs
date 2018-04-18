@@ -21,9 +21,9 @@ namespace api.Properties.Handlers
             PresupuestoItemsDAL = PresupuestoItemsDal;
         }
 
-        public IEnumerable<Cotizacion> GetAll(Guid id)
+        public IEnumerable<Cotizacion> GetAll(Guid id, out int totalPages, int pageNumber, int pageSize)
         {
-            return CotizacionesDAL.GetAll(id);
+            return CotizacionesDAL.GetAll(id, out totalPages, pageNumber, pageSize);
         }
 
         public Guid Save(Cotizacion model)

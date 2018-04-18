@@ -4,6 +4,7 @@ using log4net;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 
 namespace api.Properties.Controllers
 {
@@ -53,10 +54,16 @@ namespace api.Properties.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public IEnumerable<BO.Cotizacion> Get(Guid id)
+        [HttpGet("{id}/{pageNumber}/{pageSize}")]
+        public IActionResult Get(Guid id, int pageNumber, int pageSize)
         {
-            return CotizacionesHandler.GetAll(id);
+            var cotizaciones = CotizacionesHandler.GetAll(id, out int totalPages, pageNumber, pageSize);
+
+            dynamic objeto = new ExpandoObject();
+            objeto.totalPages = totalPages;
+            objeto.cotizaciones = cotizaciones;
+
+            return new ObjectResult(objeto);
         }
 
         [HttpDelete("{id}")]

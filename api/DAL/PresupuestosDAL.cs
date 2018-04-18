@@ -100,5 +100,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Presupuesto> GetAll(Guid id, out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
