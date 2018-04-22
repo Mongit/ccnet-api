@@ -4,12 +4,15 @@ using DAL;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 using System.IO;
 using System.Reflection;
+using System.Text;
 
 namespace api
 {
@@ -33,6 +36,20 @@ namespace api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Jwt:Issuer"],
+                        ValidAudience = Configuration["Jwt:Issuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+                    };
+                });
+
             services.Add(new ServiceDescriptor(typeof(ILog), GetLog()));
             services.Add(new ServiceDescriptor(typeof(IDAL<Cliente>), new ClientesDAL(Configuration, "")));
             services.Add(new ServiceDescriptor(typeof(IClientesHandler), new ClientesHandler(Configuration, new ClientesDAL(Configuration, ""))));
@@ -50,6 +67,8 @@ namespace api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
 
             app.UseMvc();
         }

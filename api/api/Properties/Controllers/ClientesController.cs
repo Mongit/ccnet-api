@@ -1,12 +1,14 @@
 ﻿using api.Properties.Handlers;
 using api.Properties.Models;
 using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Dynamic;
 
 namespace api.Properties.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class ClientesController : Controller
     {
@@ -19,7 +21,7 @@ namespace api.Properties.Controllers
             ClientesHandler = clientesHandler;
         }
         // GET
-        [HttpGet("{pageNumber}/{pageSize}")]
+        [HttpGet("{pageNumber}/{pageSize}"), Authorize]
         public IActionResult Get(int pageNumber, int pageSize)
         {
             try
