@@ -1,8 +1,12 @@
-﻿namespace api.Properties.Models
+﻿using Newtonsoft.Json;
+
+namespace api.Properties.Models
 {
     public class LoginModel
     {
-        public string Username { get; set; }
+        [JsonProperty(PropertyName = "email")]
+        public string Email { get; set; }
+        [JsonProperty(PropertyName = "password")]
         public string Password { get; set; }
     }
 }

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
 
 namespace api.Properties.Models
 {
     public class UserModel
     {
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }
-        public DateTime Birthdate { get; set; }
+        [JsonProperty(PropertyName = "password")]
+        public string Password { get; set; }
     }
 }

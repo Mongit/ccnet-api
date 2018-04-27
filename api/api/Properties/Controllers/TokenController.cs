@@ -39,9 +39,9 @@ namespace api.Properties.Controllers
         {
             UserModel user = null;
 
-            if(login.Username == "mario" && login.Password == "secret")
+            if(login.Email == "jon@mail.com" && login.Password == "jon")
             {
-                user = new UserModel { Name = "Mario Rossi", Email = "mario.rossi@domain.com" };
+                user = new UserModel { Email = "jon@mail.com", Password = "jon", };
             }
             return user;
         }
