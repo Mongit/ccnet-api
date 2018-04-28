@@ -55,6 +55,7 @@ namespace api
             services.Add(new ServiceDescriptor(typeof(IClientesHandler), new ClientesHandler(Configuration, new ClientesDAL(Configuration, ""))));
             services.Add(new ServiceDescriptor(typeof(ICotizacionesHandler), new CotizacionesHandler(Configuration, new CotizacionesDAL(Configuration, ""), new PresupuestosDAL(Configuration, ""), new PresupuestosItemDAL(Configuration))));
             services.Add(new ServiceDescriptor(typeof(IPresupuestosHandler), new PresupuestosHandler(Configuration, new PresupuestosDAL(Configuration, ""), new PresupuestosItemDAL(Configuration))));
+            services.Add(new ServiceDescriptor(typeof(IUsuariosHandler), new UsuariosHandler(new UsuariosDAL(Configuration))));
 
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddMvc();

@@ -1,4 +1,6 @@
-﻿using api.Properties.Models;
+﻿using api.Properties.Handlers;
+using api.Properties.Models;
+using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -14,18 +16,22 @@ namespace api.Properties.Controllers
     public class TokenController : Controller
     {
         private IConfiguration _config;
+        private ILog Log { get; set; }
+        private IUsuariosHandler UsuariosHandler { get; set; }
 
-        public TokenController(IConfiguration config)
+        public TokenController(IConfiguration config, ILog log, IUsuariosHandler usuariosHandler)
         {
             _config = config;
+            Log = log;
+            UsuariosHandler = usuariosHandler;
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult CreateToken([FromBody] LoginModel login)
+        public IActionResult CreateToken([FromBody] UsuarioModel model)
         {
             IActionResult response = Unauthorized();
-            var user = Authenticate(login);
+            var user = Authenticate(model);
 
             if(user != null)
             {
@@ -35,18 +41,17 @@ namespace api.Properties.Controllers
             return response;
         }
 
-        private UserModel Authenticate(LoginModel login)
+        private UsuarioModel Authenticate(UsuarioModel model)
         {
-            UserModel user = null;
-
-            if(login.Email == "jon@mail.com" && login.Password == "jon")
+            BO.Usuario usuarioBo = UsuariosHandler.Authenticate(model.GetBusinessObject());
+            if (usuarioBo == null)
             {
-                user = new UserModel { Email = "jon@mail.com", Password = "jon", };
+                return null;
             }
-            return user;
+            return model;
         }
 
-        private string BuildToken(UserModel user)
+        private string BuildToken(UsuarioModel user)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
