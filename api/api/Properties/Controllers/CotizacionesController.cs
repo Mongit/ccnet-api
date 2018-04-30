@@ -1,6 +1,7 @@
 ﻿using api.Properties.Handlers;
 using api.Properties.Models;
 using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Dynamic;
 
 namespace api.Properties.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class CotizacionesController : Controller
     {
