@@ -94,7 +94,19 @@ namespace DAL.Proveedores
 
         public Proveedor Update(Guid id, Proveedor model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, id));
+            cmd.Parameters.Add(GetParam("@empresa", SqlDbType.VarChar, model.Empresa));
+            cmd.Parameters.Add(GetParam("@contacto", SqlDbType.VarChar, model.Contacto));
+            cmd.Parameters.Add(GetParam("@domicilio", SqlDbType.VarChar, model.Domicilio));
+            cmd.Parameters.Add(GetParam("@telefono", SqlDbType.VarChar, model.Telefono));
+            cmd.Parameters.Add(GetParam("@email", SqlDbType.VarChar, model.Email));
+            cmd.Parameters.Add(GetParam("@horarioAtencion", SqlDbType.VarChar, model.HorarioAtencion));
+
+            ExecuteNonQuery(cmd);
+
+            return model;
         }
     }
 }

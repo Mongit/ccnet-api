@@ -31,5 +31,10 @@ namespace api.Properties.Handlers.Proveedores
         {
             return ProveedoresDAL.GetOne(id);
         }
+
+        public Proveedor Update(Guid id, Proveedor model)
+        {
+            return ProveedoresDAL.Update(id, model);
+        }
     }
 }

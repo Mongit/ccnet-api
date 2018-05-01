@@ -70,5 +70,20 @@ namespace api.Properties.Controllers.Proveedores
                 throw ex;
             }
         }
+
+        [HttpPut("{id}")]
+        public string Put(Guid id, [FromBody]ProveedorModel model)
+        {
+            try
+            {
+                Proveedor modelUpdated = ProveedoresHandler.Update(id, model.GetBusinessObject());
+                return string.Format("Se modificó exitosamente la empresa: {0}", modelUpdated.Empresa);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }
