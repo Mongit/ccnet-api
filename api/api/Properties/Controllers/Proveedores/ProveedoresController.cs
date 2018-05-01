@@ -1,5 +1,6 @@
 ﻿using api.Properties.Handlers.Proveedores;
 using api.Properties.Models;
+using BO.Proveedor;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,20 @@ namespace api.Properties.Controllers.Proveedores
             {
                 Guid savedId = ProveedoresHandler.Save(model.GetBusinessObject());
                 return new ObjectResult(savedId);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
+
+        [HttpGet("{id}")]
+        public Proveedor Get(Guid id)
+        {
+            try
+            {
+                return ProveedoresHandler.GetOne(id);
             }
             catch (Exception ex)
             {

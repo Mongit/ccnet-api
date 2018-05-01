@@ -26,5 +26,10 @@ namespace api.Properties.Handlers.Proveedores
         {
             return ProveedoresDAL.Save(model);
         }
+
+        public Proveedor GetOne(Guid id)
+        {
+            return ProveedoresDAL.GetOne(id);
+        }
     }
 }
