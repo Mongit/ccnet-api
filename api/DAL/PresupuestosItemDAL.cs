@@ -61,12 +61,7 @@ namespace DAL
 
             CopyToServer(table);
         }
-
-        public IEnumerable<PresupuestoItem> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public IEnumerable<PresupuestoItem> GetAll(Guid id)
         {
             throw new NotImplementedException();

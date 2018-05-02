@@ -21,12 +21,12 @@ namespace api.Properties.Controllers.Proveedores
             CuentasHandler = cuentasHandler;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("{id}/{pageNumber}/{pageSize}")]
+        public IActionResult GetAll(Guid id)
         {
             try
             {
-                return new ObjectResult(CuentasHandler.GetAll());
+                return new ObjectResult(CuentasHandler.GetAll(id));
             }
             catch (Exception ex)
             {

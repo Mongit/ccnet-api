@@ -69,11 +69,6 @@ namespace DAL
 
         }
 
-        public IEnumerable<Presupuesto> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Presupuesto> GetAll(Guid id)
         {
             throw new NotImplementedException();

@@ -15,12 +15,7 @@ namespace DAL.Proveedores
 
         public IEnumerable<Cuenta> GetAll(Guid id)
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Cuenta> GetAll()
-        {
-            SqlCommand cmd = new SqlCommand("SELECT * from Cuentas");
+            SqlCommand cmd = new SqlCommand("SELECT * from Cuentas where ProveedorId = '" + id + "'");
 
             List<Cuenta> list = new List<Cuenta>();
             Action<SqlDataReader> action = (dr =>

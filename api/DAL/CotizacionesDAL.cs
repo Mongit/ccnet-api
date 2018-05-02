@@ -88,11 +88,6 @@ namespace DAL
             CopyToServer(table);
         }
 
-        public IEnumerable<Cotizacion> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Cotizacion> GetAll(Guid id)
         {
             SqlCommand cmd = new SqlCommand("SELECT * from Cotizaciones where ClienteId = '" + id + "'");

@@ -116,10 +116,5 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<Cliente> GetAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

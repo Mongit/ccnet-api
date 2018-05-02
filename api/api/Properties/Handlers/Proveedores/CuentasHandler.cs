@@ -16,9 +16,9 @@ namespace api.Properties.Handlers.Proveedores
             CuentasDAL = cuentasDal;
         }
 
-        public IEnumerable<Cuenta> GetAll()
+        public IEnumerable<Cuenta> GetAll(Guid id)
         {
-            return CuentasDAL.GetAll();
+            return CuentasDAL.GetAll(id);
         }
 
         public Guid Save(Cuenta model)
