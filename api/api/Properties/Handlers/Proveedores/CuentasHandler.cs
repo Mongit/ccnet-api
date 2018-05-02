@@ -25,5 +25,15 @@ namespace api.Properties.Handlers.Proveedores
         {
             return CuentasDAL.Save(model);
         }
+
+        public Cuenta GetOne(Guid id)
+        {
+            return CuentasDAL.GetOne(id);
+        }
+
+        public Cuenta Update(Guid id, Cuenta model)
+        {
+            return CuentasDAL.Update(id, model);
+        }
     }
 }

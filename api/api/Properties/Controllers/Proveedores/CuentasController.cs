@@ -1,5 +1,6 @@
 ﻿using api.Properties.Handlers.Proveedores;
 using api.Properties.Models.Proveedores;
+using BO.Proveedor;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -41,6 +42,35 @@ namespace api.Properties.Controllers.Proveedores
             {
                 Guid savedId = CuentasHandler.Save(model.GetBusinessObject());
                 return new ObjectResult(savedId);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
+
+        [HttpGet("{id}")]
+        public Cuenta Get(Guid id)
+        {
+            try
+            {
+                return CuentasHandler.GetOne(id);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
+
+        [HttpPut("{id}")]
+        public string Put(Guid id, [FromBody]CuentaModel model)
+        {
+            try
+            {
+                Cuenta modelUpdated = CuentasHandler.Update(id, model.GetBusinessObject());
+                return string.Format("Se modificó exitosamente la cuenta");
             }
             catch (Exception ex)
             {

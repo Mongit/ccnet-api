@@ -76,7 +76,18 @@ namespace DAL.Proveedores
 
         public Cuenta Update(Guid id, Cuenta model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, id));
+            cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
+            cmd.Parameters.Add(GetParam("@banco", SqlDbType.VarChar, model.Banco));
+            cmd.Parameters.Add(GetParam("@titular", SqlDbType.VarChar, model.Titular));
+            cmd.Parameters.Add(GetParam("@clabe", SqlDbType.VarChar, model.CLABE));
+            cmd.Parameters.Add(GetParam("@noCuenta", SqlDbType.VarChar, model.NoCuenta));
+
+            ExecuteNonQuery(cmd);
+
+            return model;
         }
     }
 }

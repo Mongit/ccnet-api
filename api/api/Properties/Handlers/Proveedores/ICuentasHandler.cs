@@ -8,5 +8,7 @@ namespace api.Properties.Handlers.Proveedores
     {
         IEnumerable<Cuenta> GetAll();
         Guid Save(Cuenta model);
+        Cuenta GetOne(Guid id);
+        Cuenta Update(Guid id, Cuenta model);
     }
 }
