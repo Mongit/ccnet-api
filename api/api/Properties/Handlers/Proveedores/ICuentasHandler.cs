@@ -10,5 +10,6 @@ namespace api.Properties.Handlers.Proveedores
         Guid Save(Cuenta model);
         Cuenta GetOne(Guid id);
         Cuenta Update(Guid id, Cuenta model);
+        void Delete(Guid id);
     }
 }

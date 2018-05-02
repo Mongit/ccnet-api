@@ -78,5 +78,20 @@ namespace api.Properties.Controllers.Proveedores
                 throw ex;
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            try
+            {
+                CuentasHandler.Delete(id);
+                return new ObjectResult("Se eliminó exitosamente la cuenta");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

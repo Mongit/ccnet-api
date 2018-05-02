@@ -35,5 +35,10 @@ namespace api.Properties.Handlers.Proveedores
         {
             return CuentasDAL.Update(id, model);
         }
+
+        public void Delete(Guid id)
+        {
+            CuentasDAL.Delete(id);
+        }
     }
 }
