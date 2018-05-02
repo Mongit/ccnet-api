@@ -18,6 +18,7 @@ namespace DAL
         int DeleteChildren(Guid parentId);
         IEnumerable<TEntity> GetChildren(Guid parentId);
         
+        IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> GetAll(Guid id);
         IEnumerable<TEntity> GetAll(out int totalPages, int pageNumber, int pageSize);
         IEnumerable<TEntity> GetAll(Guid id, out int totalPages, int pageNumber, int pageSize);

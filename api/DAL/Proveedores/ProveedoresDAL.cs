@@ -61,6 +61,11 @@ namespace DAL.Proveedores
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Proveedor> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public override Proveedor Load(SqlDataReader dr)
         {
             Proveedor it = new Proveedor();
