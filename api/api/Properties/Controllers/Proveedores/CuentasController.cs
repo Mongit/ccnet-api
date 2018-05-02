@@ -1,4 +1,5 @@
 ﻿using api.Properties.Handlers.Proveedores;
+using api.Properties.Models.Proveedores;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,20 @@ namespace api.Properties.Controllers.Proveedores
                 throw ex;
             }
         }
-        
+
+        [HttpPost]
+        public IActionResult Post([FromBody] CuentaModel model)
+        {
+            try
+            {
+                Guid savedId = CuentasHandler.Save(model.GetBusinessObject());
+                return new ObjectResult(savedId);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

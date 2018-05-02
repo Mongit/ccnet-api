@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BO.Proveedor;
 using DAL;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,11 @@ namespace api.Properties.Handlers.Proveedores
         public IEnumerable<Cuenta> GetAll()
         {
             return CuentasDAL.GetAll();
+        }
+
+        public Guid Save(Cuenta model)
+        {
+            return CuentasDAL.Save(model);
         }
     }
 }

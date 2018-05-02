@@ -94,7 +94,7 @@ namespace DAL.Proveedores
 
             ExecuteNonQuery(cmd);
             
-            return model.Id; ;
+            return model.Id;
         }
 
         public Proveedor Update(Guid id, Proveedor model)
