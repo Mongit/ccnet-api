@@ -85,5 +85,12 @@ namespace api.Properties.Controllers.Proveedores
                 throw ex;
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            ProveedoresHandler.Delete(id);
+            return new ObjectResult("Proveedor eliminado exitosamente.");
+        }
     }
 }

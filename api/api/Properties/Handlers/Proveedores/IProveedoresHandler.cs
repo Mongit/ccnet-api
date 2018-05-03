@@ -10,5 +10,6 @@ namespace api.Properties.Handlers.Proveedores
         Guid Save(Proveedor model);
         Proveedor GetOne(Guid id);
         Proveedor Update(Guid id, Proveedor model);
+        void Delete(Guid id);
     }
 }

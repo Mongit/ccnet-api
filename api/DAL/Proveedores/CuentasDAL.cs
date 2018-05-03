@@ -9,7 +9,7 @@ namespace DAL.Proveedores
 {
     public class CuentasDAL : BaseApiDAL<Cuenta>, IDAL<Cuenta>
     {
-        public CuentasDAL(IConfiguration config, string parentCol = "") : base("CUENTAS", config, parentCol)
+        public CuentasDAL(IConfiguration config, string parentCol = "") : base("CUENTAS", config, "ProveedorId")
         {
         }
 
