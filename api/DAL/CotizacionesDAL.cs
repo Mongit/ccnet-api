@@ -153,5 +153,10 @@ namespace DAL
                 throw e;
             }
         }
+
+        public IEnumerable<Cotizacion> SearchByTerm(string term)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

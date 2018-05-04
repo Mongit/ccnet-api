@@ -45,5 +45,10 @@ namespace api.Properties.Handlers.Proveedores
             CuentasDAL.DeleteChildren(id);
             ProveedoresDAL.Delete(id);
         }
+
+        public IEnumerable<Proveedor> SearchByTerm(string term)
+        {
+            return ProveedoresDAL.SearchByTerm(term);
+        }
     }
 }

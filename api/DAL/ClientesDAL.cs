@@ -116,5 +116,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Cliente> SearchByTerm(string term)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

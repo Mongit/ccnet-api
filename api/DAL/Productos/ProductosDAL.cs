@@ -79,6 +79,11 @@ namespace DAL.Productos
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Producto> SearchByTerm(string term)
+        {
+            throw new NotImplementedException();
+        }
+
         public Producto Update(Guid id, Producto model)
         {
             throw new NotImplementedException();

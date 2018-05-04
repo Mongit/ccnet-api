@@ -11,5 +11,6 @@ namespace api.Properties.Handlers.Proveedores
         Proveedor GetOne(Guid id);
         Proveedor Update(Guid id, Proveedor model);
         void Delete(Guid id);
+        IEnumerable<Proveedor> SearchByTerm(String term);
     }
 }

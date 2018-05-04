@@ -69,6 +69,11 @@ namespace DAL.Proveedores
             return model.Id;
         }
 
+        public IEnumerable<Cuenta> SearchByTerm(string term)
+        {
+            throw new NotImplementedException();
+        }
+
         public Cuenta Update(Guid id, Cuenta model)
         {
             SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);

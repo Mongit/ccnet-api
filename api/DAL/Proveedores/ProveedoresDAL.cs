@@ -108,5 +108,21 @@ namespace DAL.Proveedores
 
             return model;
         }
+
+        public IEnumerable<Proveedor> SearchByTerm(string term)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Proveedores WHERE Empresa LIKE '%" + term + "%'");
+
+            List<Proveedor> list = new List<Proveedor>();
+            Action<SqlDataReader> action = (dr =>
+            {
+                while (dr.Read())
+                {
+                    list.Add(Load(dr));
+                }
+            });
+            ExecuteDataReader(cmd, action);
+            return list;
+        }
     }
 }

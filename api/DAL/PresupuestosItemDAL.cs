@@ -81,5 +81,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<PresupuestoItem> SearchByTerm(string term)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
