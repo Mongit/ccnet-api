@@ -1,5 +1,6 @@
 ﻿using api.Properties.Handlers.Productos;
 using api.Properties.Models.Productos;
+using BO.Producto;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -48,6 +49,20 @@ namespace api.Properties.Controllers.Productos
             {
                 ProductosHandler.Save(model.GetBusinessObject());
                 return new ObjectResult("El producto se ha creado exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
+
+        [HttpGet("{id}")]
+        public Producto Get(Guid id)
+        {
+            try
+            {
+                return ProductosHandler.GetOne(id);
             }
             catch (Exception ex)
             {

@@ -1,6 +1,7 @@
 ﻿using BO.Producto;
 using DAL;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 
 namespace api.Properties.Handlers.Productos
@@ -24,6 +25,11 @@ namespace api.Properties.Handlers.Productos
         public void Save(Producto model)
         {
             ProductosDAL.Save(model);
+        }
+
+        public Producto GetOne(Guid id)
+        {
+            return ProductosDAL.GetOne(id);
         }
     }
 }
