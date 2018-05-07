@@ -1,4 +1,5 @@
 ﻿using api.Properties.Handlers.Productos;
+using api.Properties.Models.Productos;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,5 +41,19 @@ namespace api.Properties.Controllers.Productos
             }
         }
 
+        [HttpPost]
+        public IActionResult Post([FromBody] ProductoModel model)
+        {
+            try
+            {
+                ProductosHandler.Save(model.GetBusinessObject());
+                return new ObjectResult("El producto se ha creado exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

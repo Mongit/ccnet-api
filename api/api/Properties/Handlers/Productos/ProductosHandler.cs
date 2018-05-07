@@ -20,5 +20,10 @@ namespace api.Properties.Handlers.Productos
         {
             return ProductosDAL.GetAll(out totalPages, pageNumber, pageSize);
         }
+
+        public void Save(Producto model)
+        {
+            ProductosDAL.Save(model);
+        }
     }
 }

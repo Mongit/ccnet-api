@@ -76,7 +76,17 @@ namespace DAL.Productos
 
         public override Guid Save(Producto model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.SAVE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, model.Id));
+            cmd.Parameters.Add(GetParam("@nombre", SqlDbType.VarChar, model.Nombre));
+            cmd.Parameters.Add(GetParam("@color", SqlDbType.VarChar, model.Color));
+            cmd.Parameters.Add(GetParam("@unidad", SqlDbType.VarChar, model.Unidad));
+            cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
+
+            ExecuteNonQuery(cmd);
+
+            return model.Id;
         }
 
         public IEnumerable<Producto> SearchByTerm(string term)
