@@ -70,5 +70,20 @@ namespace api.Properties.Controllers.Productos
                 throw ex;
             }
         }
+
+        [HttpPut("{id}")]
+        public string Put(Guid id, [FromBody]ProductoModel model)
+        {
+            try
+            {
+                ProductosHandler.Update(id, model.GetBusinessObject());
+                return string.Format("Producto guardado exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

@@ -96,7 +96,17 @@ namespace DAL.Productos
 
         public Producto Update(Guid id, Producto model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, id));
+            cmd.Parameters.Add(GetParam("@nombre", SqlDbType.VarChar, model.Nombre));
+            cmd.Parameters.Add(GetParam("@color", SqlDbType.VarChar, model.Color));
+            cmd.Parameters.Add(GetParam("@unidad", SqlDbType.VarChar, model.Unidad));
+            cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
+
+            ExecuteNonQuery(cmd);
+
+            return model;
         }
     }
 }

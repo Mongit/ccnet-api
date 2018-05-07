@@ -31,5 +31,10 @@ namespace api.Properties.Handlers.Productos
         {
             return ProductosDAL.GetOne(id);
         }
+
+        public void Update(Guid id, Producto model)
+        {
+            ProductosDAL.Update(id, model);
+        }
     }
 }
