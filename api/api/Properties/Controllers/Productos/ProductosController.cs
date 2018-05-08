@@ -85,5 +85,20 @@ namespace api.Properties.Controllers.Productos
                 throw ex;
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            try
+            {
+                ProductosHandler.Delete(id);
+                return new ObjectResult("El producto se eliminó exitosamente.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

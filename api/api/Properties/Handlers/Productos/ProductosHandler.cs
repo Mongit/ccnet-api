@@ -36,5 +36,10 @@ namespace api.Properties.Handlers.Productos
         {
             ProductosDAL.Update(id, model);
         }
+
+        public void Delete(Guid id)
+        {
+            ProductosDAL.Delete(id);
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace api.Properties.Handlers.Productos
         void Save(Producto model);
         Producto GetOne(Guid id);
         void Update(Guid id, Producto model);
+        void Delete(Guid id);
     }
 }
