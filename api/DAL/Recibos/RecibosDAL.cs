@@ -75,7 +75,20 @@ namespace DAL.Recibos
 
         public override Guid Save(Recibo model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.SAVE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, model.Id));
+            cmd.Parameters.Add(GetParam("@clienteId", SqlDbType.UniqueIdentifier, model.ClienteId));
+            cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
+            cmd.Parameters.Add(GetParam("@fecha", SqlDbType.DateTime, model.Fecha));
+
+            cmd.Parameters.Add(GetParamOut("@folio", SqlDbType.Int));
+
+            ExecuteNonQuery(cmd);
+
+            model.Folio = (int)cmd.Parameters["@folio"].Value;
+
+            return model.Id;
         }
 
         public IEnumerable<Recibo> SearchByTerm(string term)

@@ -1,6 +1,7 @@
 ﻿using BO.Recibo;
 using DAL;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 
 namespace api.Properties.Handlers.Recibos
@@ -21,5 +22,9 @@ namespace api.Properties.Handlers.Recibos
             return RecibosDAL.GetAll(out totalPages, pageNumber, pageSize);
         }
 
+        public Guid Save(Recibo model)
+        {
+            return RecibosDAL.Save(model);
+        }
     }
 }
