@@ -1,5 +1,6 @@
 ﻿using api.Properties.Handlers.Recibos;
 using api.Properties.Models.Recibos;
+using BO.Recibo;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -52,6 +53,20 @@ namespace api.Properties.Controllers.Recibos
                     return new ObjectResult(savedId);
                 }
                 return new ObjectResult(Guid.NewGuid());
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
+
+        [HttpGet("{id}")]
+        public Recibo Get(Guid id)
+        {
+            try
+            {
+                return RecibosHandler.GetOne(id);
             }
             catch (Exception ex)
             {

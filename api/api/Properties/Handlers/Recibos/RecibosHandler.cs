@@ -26,5 +26,10 @@ namespace api.Properties.Handlers.Recibos
         {
             return RecibosDAL.Save(model);
         }
+
+        public Recibo GetOne(Guid id)
+        {
+            return RecibosDAL.GetOne(id);
+        }
     }
 }
