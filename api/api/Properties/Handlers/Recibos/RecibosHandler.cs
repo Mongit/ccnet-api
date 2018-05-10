@@ -31,5 +31,10 @@ namespace api.Properties.Handlers.Recibos
         {
             return RecibosDAL.GetOne(id);
         }
+
+        public void Update(Guid id, Recibo model)
+        {
+            RecibosDAL.Update(id, model);
+        }
     }
 }

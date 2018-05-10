@@ -98,7 +98,17 @@ namespace DAL.Recibos
 
         public Recibo Update(Guid id, Recibo model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, id));
+            cmd.Parameters.Add(GetParam("@folio", SqlDbType.Int, model.Folio));
+            cmd.Parameters.Add(GetParam("@clienteId", SqlDbType.UniqueIdentifier, model.ClienteId));
+            cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
+            cmd.Parameters.Add(GetParam("@fecha", SqlDbType.DateTime, model.Fecha));
+            
+            ExecuteNonQuery(cmd);
+
+            return model;
         }
     }
 }

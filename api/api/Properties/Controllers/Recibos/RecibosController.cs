@@ -74,5 +74,20 @@ namespace api.Properties.Controllers.Recibos
                 throw ex;
             }
         }
+
+        [HttpPut("{id}")]
+        public string Put(Guid id, [FromBody]ReciboModel model)
+        {
+            try
+            {
+                RecibosHandler.Update(id, model.GetBusinessObject());
+                return string.Format("Producto guardado exitosamente."); ;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }
