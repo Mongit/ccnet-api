@@ -37,5 +37,10 @@ namespace api.Properties.Handlers
         {
             return ClientesDAL.Update(id, model);
         }
+
+        public IEnumerable<Cliente> SearchByTerm(string term)
+        {
+            return ClientesDAL.SearchByTerm(term);
+        }
     }
 }

@@ -94,5 +94,19 @@ namespace api.Properties.Controllers
         {
             return "Hola desde Delete " + id;
         }
+
+        [HttpGet("search/term/{searchTerm}")]
+        public ActionResult Get(string searchTerm)
+        {
+            try
+            {
+                return new ObjectResult(ClientesHandler.SearchByTerm(searchTerm));
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

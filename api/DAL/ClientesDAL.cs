@@ -119,7 +119,18 @@ namespace DAL
 
         public IEnumerable<Cliente> SearchByTerm(string term)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Clientes WHERE Empresa LIKE '%" + term + "%'");
+
+            List<Cliente> list = new List<Cliente>();
+            Action<SqlDataReader> action = (dr =>
+            {
+                while (dr.Read())
+                {
+                    list.Add(Load(dr));
+                }
+            });
+            ExecuteDataReader(cmd, action);
+            return list;
         }
     }
 }

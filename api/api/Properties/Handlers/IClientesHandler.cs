@@ -10,5 +10,6 @@ namespace api.Properties.Handlers
         IEnumerable<Cliente> GetAll(out int totalPages, int pageNumber, int pageSize);
         Cliente GetOne(Guid id);
         Cliente Update(Guid id, Cliente model);
+        IEnumerable<Cliente> SearchByTerm(String term);
     }
 }
