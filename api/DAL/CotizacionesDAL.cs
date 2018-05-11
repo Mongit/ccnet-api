@@ -156,7 +156,18 @@ namespace DAL
 
         public IEnumerable<Cotizacion> SearchByTerm(string term)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Cotizaciones WHERE Folio LIKE '%" + term + "%'");
+
+            List<Cotizacion> list = new List<Cotizacion>();
+            Action<SqlDataReader> action = (dr =>
+            {
+                while (dr.Read())
+                {
+                    list.Add(Load(dr));
+                }
+            });
+            ExecuteDataReader(cmd, action);
+            return list;
         }
     }
 }

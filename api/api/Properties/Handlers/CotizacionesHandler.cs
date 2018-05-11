@@ -43,5 +43,10 @@ namespace api.Properties.Handlers
             CotizacionesDAL.Delete(cotizacionId);
             return cotizacionId;
         }
+
+        public IEnumerable<Cotizacion> SearchByTerm(string term)
+        {
+            return CotizacionesDAL.SearchByTerm(term);
+        }
     }
 }

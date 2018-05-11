@@ -74,5 +74,19 @@ namespace api.Properties.Controllers
             CotizacionesHandler.Delete(id);
             return new ObjectResult(id);
         }
+
+        [HttpGet("search/term/{searchTerm}")]
+        public ActionResult Get(string searchTerm)
+        {
+            try
+            {
+                return new ObjectResult(CotizacionesHandler.SearchByTerm(searchTerm));
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }
