@@ -65,7 +65,7 @@ namespace api
             services.Add(new ServiceDescriptor(typeof(IProveedoresHandler), new ProveedoresHandler(Configuration, new ProveedoresDAL(Configuration, ""), new CuentasDAL(Configuration, ""))));
             services.Add(new ServiceDescriptor(typeof(ICuentasHandler), new CuentasHandler(Configuration, new CuentasDAL(Configuration, ""))));
             services.Add(new ServiceDescriptor(typeof(IProductosHandler), new ProductosHandler(Configuration, new ProductosDAL(Configuration, ""))));
-            services.Add(new ServiceDescriptor(typeof(IRecibosHandler), new RecibosHandler(Configuration, new RecibosDAL(Configuration, ""))));
+            services.Add(new ServiceDescriptor(typeof(IRecibosHandler), new RecibosHandler(Configuration, new RecibosDAL(Configuration, ""), new RecibosItemDAL(Configuration))));
 
 
             services.AddSingleton<IConfiguration>(Configuration);

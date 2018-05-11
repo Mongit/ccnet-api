@@ -80,8 +80,15 @@ namespace api.Properties.Controllers.Recibos
         {
             try
             {
-                RecibosHandler.Update(id, model.GetBusinessObject());
-                return string.Format("Producto guardado exitosamente."); ;
+                if (ModelState.IsValid)
+                {
+                    var reciboBo = model.GetBusinessObject();
+                    RecibosHandler.SaveChildren(reciboBo.Items);
+                    RecibosHandler.Update(id, reciboBo);
+
+                    return string.Format("Producto guardado exitosamente.");
+                }
+                return string.Format("Lo sentimos, el producto no se pudo guardar, le pedimos revise los datos ingresados.");
             }
             catch (Exception ex)
             {

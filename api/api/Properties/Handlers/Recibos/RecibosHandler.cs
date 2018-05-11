@@ -10,11 +10,13 @@ namespace api.Properties.Handlers.Recibos
     {
         private IConfiguration Configuration { get; set; }
         IDAL<Recibo> RecibosDAL { get; set; }
+        IDAL<ReciboItem> ReciboItemDAL { get; set; }
 
-        public RecibosHandler(IConfiguration config, IDAL<Recibo> recibosDAL)
+        public RecibosHandler(IConfiguration config, IDAL<Recibo> recibosDAL, IDAL<ReciboItem> recibosItemDal)
         {
             Configuration = config;
             RecibosDAL = recibosDAL;
+            ReciboItemDAL = recibosItemDal;
         }
 
         public IEnumerable<Recibo> GetAll(out int totalPages, int pageNumber, int pageSize)
@@ -35,6 +37,11 @@ namespace api.Properties.Handlers.Recibos
         public void Update(Guid id, Recibo model)
         {
             RecibosDAL.Update(id, model);
+        }
+
+        public void SaveChildren(IEnumerable<ReciboItem> items)
+        {
+            ReciboItemDAL.SaveChildren(items);
         }
     }
 }
