@@ -11,5 +11,6 @@ namespace api.Properties.Handlers.Recibos
         Recibo GetOne(Guid id);
         void Update(Guid id, Recibo model);
         void SaveChildren(IEnumerable<ReciboItem> items);
+        void Delete(Guid id);
     }
 }

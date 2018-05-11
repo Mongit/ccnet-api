@@ -43,5 +43,11 @@ namespace api.Properties.Handlers.Recibos
         {
             ReciboItemDAL.SaveChildren(items);
         }
+
+        public void Delete(Guid id)
+        {
+            ReciboItemDAL.DeleteChildren(id);
+            RecibosDAL.Delete(id);
+        }
     }
 }

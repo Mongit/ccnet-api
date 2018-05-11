@@ -96,5 +96,12 @@ namespace api.Properties.Controllers.Recibos
                 throw ex;
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            RecibosHandler.Delete(id);
+            return new ObjectResult("El recibo se ha eliminado exitosamente.");
+        }
     }
 }
