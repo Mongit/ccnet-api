@@ -3,6 +3,7 @@ using DAL;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace api.Properties.Handlers.Recibos
 {
@@ -31,7 +32,10 @@ namespace api.Properties.Handlers.Recibos
 
         public Recibo GetOne(Guid id)
         {
-            return RecibosDAL.GetOne(id);
+            Recibo recibo = RecibosDAL.GetOne(id);
+            IEnumerable<ReciboItem> items = ReciboItemDAL.GetChildren(id);
+            recibo.Items = items.ToList();
+            return recibo;
         }
 
         public void Update(Guid id, Recibo model)

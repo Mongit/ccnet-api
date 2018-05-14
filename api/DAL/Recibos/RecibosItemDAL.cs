@@ -31,7 +31,15 @@ namespace DAL.Recibos
 
         public override ReciboItem Load(SqlDataReader dr)
         {
-            throw new NotImplementedException();
+            ReciboItem it = new ReciboItem();
+            it.Id = GetCastValue<Guid>(dr["Id"]);
+            it.Cantidad = GetCastValue<decimal>(dr["Cantidad"]);
+            it.Descripcion = GetString(dr["Descripcion"]);
+            it.Precio = GetCastValue<decimal>(dr["Precio"]);
+            it.ReciboId = GetCastValue<Guid>(dr["ReciboId"]);
+            it.CotizacionId = GetCastValue<Guid>(dr["CotizacionId"]);
+
+            return it;
         }
 
         public override Guid Save(ReciboItem model)
