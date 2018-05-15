@@ -48,5 +48,10 @@ namespace api.Properties.Handlers
         {
             return CotizacionesDAL.SearchByTerm(term);
         }
+
+        public Cotizacion GetOne(Guid id)
+        {
+            return CotizacionesDAL.GetOne(id);
+        }
     }
 }

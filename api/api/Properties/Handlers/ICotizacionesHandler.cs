@@ -10,5 +10,6 @@ namespace api.Properties.Handlers
         Guid Save(Cotizacion model);
         Guid Delete(Guid id);
         IEnumerable<Cotizacion> SearchByTerm(String term);
+        Cotizacion GetOne(Guid id);
     }
 }

@@ -88,5 +88,11 @@ namespace api.Properties.Controllers
                 throw ex;
             }
         }
+
+        [HttpGet("{id}")]
+        public ActionResult GetOne(Guid id)
+        {
+            return new ObjectResult(CotizacionesHandler.GetOne(id));
+        }
     }
 }
