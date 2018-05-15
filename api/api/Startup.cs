@@ -2,11 +2,13 @@
 using api.Properties.Handlers.Productos;
 using api.Properties.Handlers.Proveedores;
 using api.Properties.Handlers.Recibos;
+using api.Properties.Handlers.Stocks;
 using BO;
 using DAL;
 using DAL.Productos;
 using DAL.Proveedores;
 using DAL.Recibos;
+using DAL.Stocks;
 using log4net;
 using log4net.Config;
 using log4net.Repository;
@@ -66,6 +68,7 @@ namespace api
             services.Add(new ServiceDescriptor(typeof(ICuentasHandler), new CuentasHandler(Configuration, new CuentasDAL(Configuration, ""))));
             services.Add(new ServiceDescriptor(typeof(IProductosHandler), new ProductosHandler(Configuration, new ProductosDAL(Configuration, ""))));
             services.Add(new ServiceDescriptor(typeof(IRecibosHandler), new RecibosHandler(Configuration, new RecibosDAL(Configuration, ""), new RecibosItemDAL(Configuration))));
+            services.Add(new ServiceDescriptor(typeof(IStocksHandler), new StocksHandler(Configuration, new StocksDAL(Configuration, ""))));
 
 
             services.AddSingleton<IConfiguration>(Configuration);
