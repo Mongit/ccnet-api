@@ -26,7 +26,7 @@ namespace api.Properties.Controllers.Stocks
         {
             try
             {
-                var stocks = StocksHandler.GetAll(out int totalPages, pageNumber, pageSize);
+                var stocks = StocksHandler.GetReport(out int totalPages, pageNumber, pageSize);
 
                 dynamic objeto = new ExpandoObject();
                 objeto.totalPages = totalPages;

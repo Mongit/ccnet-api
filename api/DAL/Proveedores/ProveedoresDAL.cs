@@ -124,5 +124,10 @@ namespace DAL.Proveedores
             ExecuteDataReader(cmd, action);
             return list;
         }
+
+        public IEnumerable<Proveedor> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

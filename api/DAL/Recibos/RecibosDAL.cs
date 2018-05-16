@@ -61,6 +61,11 @@ namespace DAL.Recibos
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Recibo> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
         public override Recibo Load(SqlDataReader dr)
         {
             Recibo it = new Recibo();

@@ -21,6 +21,7 @@ namespace DAL
         
         IEnumerable<TEntity> GetAll(Guid id);
         IEnumerable<TEntity> GetAll(out int totalPages, int pageNumber, int pageSize);
+        IEnumerable<TEntity> GetReport(out int totalPages, int pageNumber, int pageSize);
         IEnumerable<TEntity> GetAll(Guid id, out int totalPages, int pageNumber, int pageSize);
         TEntity Update(Guid id, TEntity model);
         IEnumerable<TEntity> SearchByTerm(string term);

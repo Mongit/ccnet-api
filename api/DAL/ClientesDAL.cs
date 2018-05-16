@@ -132,5 +132,10 @@ namespace DAL
             ExecuteDataReader(cmd, action);
             return list;
         }
+
+        public IEnumerable<Cliente> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

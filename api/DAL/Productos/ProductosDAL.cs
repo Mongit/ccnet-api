@@ -61,6 +61,11 @@ namespace DAL.Productos
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Producto> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
         public override Producto Load(SqlDataReader dr)
         {
             Producto it = new Producto();

@@ -169,5 +169,10 @@ namespace DAL
             ExecuteDataReader(cmd, action);
             return list;
         }
+
+        public IEnumerable<Cotizacion> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -77,5 +77,10 @@ namespace DAL.Recibos
 
             CopyToServer(table);
         }
+
+        public IEnumerable<ReciboItem> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

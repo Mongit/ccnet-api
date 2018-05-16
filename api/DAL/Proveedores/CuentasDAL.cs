@@ -39,6 +39,11 @@ namespace DAL.Proveedores
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Cuenta> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
         public override Cuenta Load(SqlDataReader dr)
         {
             Cuenta it = new Cuenta();

@@ -6,7 +6,7 @@ namespace api.Properties.Handlers.Stocks
 {
     public interface IStocksHandler
     {
-        IEnumerable<Stock> GetAll(out int totalPages, int pageNumber, int pageSize);
+        IEnumerable<StockReport> GetReport(out int totalPages, int pageNumber, int pageSize);
         Guid Save(Stock model);
         void Delete(Guid id);
     }
