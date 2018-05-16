@@ -59,5 +59,12 @@ namespace api.Properties.Controllers.Stocks
                 throw ex;
             }
         }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(Guid id)
+        {
+            StocksHandler.Delete(id);
+            return new ObjectResult("El registrp se ha eliminado exitosamente.");
+        }
     }
 }

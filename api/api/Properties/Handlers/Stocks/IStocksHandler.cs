@@ -8,5 +8,6 @@ namespace api.Properties.Handlers.Stocks
     {
         IEnumerable<Stock> GetAll(out int totalPages, int pageNumber, int pageSize);
         Guid Save(Stock model);
+        void Delete(Guid id);
     }
 }

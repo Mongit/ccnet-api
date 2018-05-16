@@ -26,5 +26,10 @@ namespace api.Properties.Handlers.Stocks
         {
             return StocksDAL.Save(model);
         }
+
+        public void Delete(Guid id)
+        {
+            StocksDAL.Delete(id);
+        }
     }
 }
