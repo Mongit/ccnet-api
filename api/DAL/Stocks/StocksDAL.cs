@@ -77,7 +77,19 @@ namespace DAL.Stocks
 
         public override Guid Save(Stock model)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = NewCommand(SqlQueries.SAVE_SP, CommandType.StoredProcedure);
+
+            cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, model.Id));
+            cmd.Parameters.Add(GetParam("@productoId", SqlDbType.UniqueIdentifier, model.ProductoId));
+            cmd.Parameters.Add(GetParam("@cantidad", SqlDbType.Decimal, model.Cantidad));
+            cmd.Parameters.Add(GetParam("@precio", SqlDbType.Decimal, model.Precio));
+            cmd.Parameters.Add(GetParam("@fecha", SqlDbType.DateTime, model.Fecha));
+            cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
+            cmd.Parameters.Add(GetParam("@reciboId", SqlDbType.UniqueIdentifier, model.ReciboId));
+            
+            ExecuteNonQuery(cmd);
+
+            return model.Id;
         }
 
         public IEnumerable<Stock> SearchByTerm(string term)

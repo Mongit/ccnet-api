@@ -93,7 +93,18 @@ namespace DAL.Recibos
 
         public IEnumerable<Recibo> SearchByTerm(string term)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Recibos WHERE folio LIKE '%" + term + "%'");
+
+            List<Recibo> list = new List<Recibo>();
+            Action<SqlDataReader> action = (dr =>
+            {
+                while (dr.Read())
+                {
+                    list.Add(Load(dr));
+                }
+            });
+            ExecuteDataReader(cmd, action);
+            return list;
         }
 
         public Recibo Update(Guid id, Recibo model)

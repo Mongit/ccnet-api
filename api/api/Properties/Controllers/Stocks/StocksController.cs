@@ -1,4 +1,5 @@
 ﻿using api.Properties.Handlers.Stocks;
+using api.Properties.Models.Stocks;
 using log4net;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,25 @@ namespace api.Properties.Controllers.Stocks
                 objeto.stocks = stocks;
 
                 return new ObjectResult(objeto);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] StockModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    StocksHandler.Save(model.GetBusinessObject());
+                    return new ObjectResult("Guardado exitosamente");
+                }
+                return new ObjectResult("Lo sentimos, hubo un error, revise los campos ingresados.");
             }
             catch (Exception ex)
             {

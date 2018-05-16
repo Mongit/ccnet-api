@@ -53,5 +53,10 @@ namespace api.Properties.Handlers.Recibos
             ReciboItemDAL.DeleteChildren(id);
             RecibosDAL.Delete(id);
         }
+
+        public IEnumerable<Recibo> SearchByTerm(string term)
+        {
+            return RecibosDAL.SearchByTerm(term);
+        }
     }
 }

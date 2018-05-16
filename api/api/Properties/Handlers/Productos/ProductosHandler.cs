@@ -41,5 +41,10 @@ namespace api.Properties.Handlers.Productos
         {
             ProductosDAL.Delete(id);
         }
+
+        public IEnumerable<Producto> SearchByTerm(string term)
+        {
+            return ProductosDAL.SearchByTerm(term);
+        }
     }
 }

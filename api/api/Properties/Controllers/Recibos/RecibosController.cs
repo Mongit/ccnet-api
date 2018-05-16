@@ -103,5 +103,19 @@ namespace api.Properties.Controllers.Recibos
             RecibosHandler.Delete(id);
             return new ObjectResult("El recibo se ha eliminado exitosamente.");
         }
+
+        [HttpGet("search/term/{searchTerm}")]
+        public ActionResult Get(string searchTerm)
+        {
+            try
+            {
+                return new ObjectResult(RecibosHandler.SearchByTerm(searchTerm));
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

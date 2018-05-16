@@ -12,5 +12,6 @@ namespace api.Properties.Handlers.Recibos
         void Update(Guid id, Recibo model);
         void SaveChildren(IEnumerable<ReciboItem> items);
         void Delete(Guid id);
+        IEnumerable<Recibo> SearchByTerm(String term);
     }
 }

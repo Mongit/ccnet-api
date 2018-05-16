@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace DAL.Productos
 {
@@ -91,7 +90,18 @@ namespace DAL.Productos
 
         public IEnumerable<Producto> SearchByTerm(string term)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Productos WHERE nombre LIKE '%" + term + "%'");
+
+            List<Producto> list = new List<Producto>();
+            Action<SqlDataReader> action = (dr =>
+            {
+                while (dr.Read())
+                {
+                    list.Add(Load(dr));
+                }
+            });
+            ExecuteDataReader(cmd, action);
+            return list;
         }
 
         public Producto Update(Guid id, Producto model)
