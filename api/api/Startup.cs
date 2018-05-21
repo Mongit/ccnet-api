@@ -66,7 +66,7 @@ namespace api
             services.Add(new ServiceDescriptor(typeof(IUsuariosHandler), new UsuariosHandler(new UsuariosDAL(Configuration))));
             services.Add(new ServiceDescriptor(typeof(IProveedoresHandler), new ProveedoresHandler(Configuration, new ProveedoresDAL(Configuration, ""), new CuentasDAL(Configuration, ""))));
             services.Add(new ServiceDescriptor(typeof(ICuentasHandler), new CuentasHandler(Configuration, new CuentasDAL(Configuration, ""))));
-            services.Add(new ServiceDescriptor(typeof(IProductosHandler), new ProductosHandler(Configuration, new ProductosDAL(Configuration, ""))));
+            services.Add(new ServiceDescriptor(typeof(IProductosHandler), new ProductosHandler(Configuration, new ProductosDAL(Configuration, ""), new ProductosReportDAL(Configuration,""))));
             services.Add(new ServiceDescriptor(typeof(IRecibosHandler), new RecibosHandler(Configuration, new RecibosDAL(Configuration, ""), new RecibosItemDAL(Configuration))));
             services.Add(new ServiceDescriptor(typeof(IStocksHandler), new StocksHandler(Configuration, new StocksDAL(Configuration, ""), new StocksReportDAL(Configuration, ""))));
 

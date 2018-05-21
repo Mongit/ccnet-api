@@ -10,11 +10,13 @@ namespace api.Properties.Handlers.Productos
     {
         private IConfiguration Configuration { get; set; }
         IDAL<Producto> ProductosDAL { get; set; }
+        IDAL<ProductoReport> ProductosReportDAL { get; set; }
         
-        public ProductosHandler(IConfiguration config, IDAL<Producto> productosDAL)
+        public ProductosHandler(IConfiguration config, IDAL<Producto> productosDAL, IDAL<ProductoReport> productosReportDAL)
         {
             Configuration = config;
             ProductosDAL = productosDAL;
+            ProductosReportDAL = productosReportDAL;
         }
 
         public IEnumerable<Producto> GetAll(out int totalPages, int pageNumber, int pageSize)
@@ -45,6 +47,11 @@ namespace api.Properties.Handlers.Productos
         public IEnumerable<Producto> SearchByTerm(string term)
         {
             return ProductosDAL.SearchByTerm(term);
+        }
+
+        public IEnumerable<ProductoReport> GetReport(out int totalPages, int pageNumber, int pageSize)
+        {
+            return ProductosReportDAL.GetReport(out totalPages, pageNumber, pageSize);
         }
     }
 }

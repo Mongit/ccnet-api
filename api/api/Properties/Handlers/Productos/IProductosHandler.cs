@@ -12,5 +12,6 @@ namespace api.Properties.Handlers.Productos
         void Update(Guid id, Producto model);
         void Delete(Guid id);
         IEnumerable<Producto> SearchByTerm(String term);
+        IEnumerable<ProductoReport> GetReport(out int totalPages, int pageNumber, int pageSize);
     }
 }

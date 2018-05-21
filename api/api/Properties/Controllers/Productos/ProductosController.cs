@@ -114,5 +114,25 @@ namespace api.Properties.Controllers.Productos
                 throw ex;
             }
         }
+
+        [HttpGet("Get/Report/{pageNumber}/{pageSize}")]
+        public IActionResult GetReport(int pageNumber, int pageSize)
+        {
+            try
+            {
+                var report = ProductosHandler.GetReport(out int totalPages, pageNumber, pageSize);
+
+                dynamic objeto = new ExpandoObject();
+                objeto.totalPages = totalPages;
+                objeto.productos = report;
+
+                return new ObjectResult(objeto);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }
