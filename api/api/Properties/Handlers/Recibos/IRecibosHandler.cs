@@ -6,7 +6,7 @@ namespace api.Properties.Handlers.Recibos
 {
     public interface IRecibosHandler
     {
-        IEnumerable<Recibo> GetAll(out int totalPages, int pageNumber, int pageSize);
+        IEnumerable<ReciboReport> GetReport(out int totalPages, int pageNumber, int pageSize);
         Guid Save(Recibo model);
         Recibo GetOne(Guid id);
         void Update(Guid id, Recibo model);

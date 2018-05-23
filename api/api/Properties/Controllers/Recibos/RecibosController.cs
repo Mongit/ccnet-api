@@ -27,7 +27,7 @@ namespace api.Properties.Controllers.Recibos
         {
             try
             {
-                var recibos = RecibosHandler.GetAll(out int totalPages, pageNumber, pageSize);
+                var recibos = RecibosHandler.GetReport(out int totalPages, pageNumber, pageSize);
 
                 dynamic objeto = new ExpandoObject();
                 objeto.totalPages = totalPages;

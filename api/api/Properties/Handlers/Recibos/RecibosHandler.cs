@@ -12,17 +12,19 @@ namespace api.Properties.Handlers.Recibos
         private IConfiguration Configuration { get; set; }
         IDAL<Recibo> RecibosDAL { get; set; }
         IDAL<ReciboItem> ReciboItemDAL { get; set; }
+        IDAL<ReciboReport> RecibosReportDAL { get; set; }
 
-        public RecibosHandler(IConfiguration config, IDAL<Recibo> recibosDAL, IDAL<ReciboItem> recibosItemDal)
+        public RecibosHandler(IConfiguration config, IDAL<Recibo> recibosDAL, IDAL<ReciboItem> recibosItemDal, IDAL<ReciboReport> recibosReportDal)
         {
             Configuration = config;
             RecibosDAL = recibosDAL;
             ReciboItemDAL = recibosItemDal;
+            RecibosReportDAL = recibosReportDal;
         }
 
-        public IEnumerable<Recibo> GetAll(out int totalPages, int pageNumber, int pageSize)
+        public IEnumerable<ReciboReport> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
-            return RecibosDAL.GetAll(out totalPages, pageNumber, pageSize);
+            return RecibosReportDAL.GetReport(out totalPages, pageNumber, pageSize);
         }
 
         public Guid Save(Recibo model)
