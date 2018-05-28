@@ -8,7 +8,6 @@ using System.Dynamic;
 
 namespace api.Properties.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     public class ClientesController : Controller
     {
@@ -21,7 +20,7 @@ namespace api.Properties.Controllers
             ClientesHandler = clientesHandler;
         }
         // GET
-        [HttpGet("{pageNumber}/{pageSize}"), Authorize]
+        [HttpGet("{pageNumber}/{pageSize}")]
         public IActionResult Get(int pageNumber, int pageSize)
         {
             try
