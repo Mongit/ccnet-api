@@ -24,9 +24,6 @@ namespace api.Properties.Controllers
         [HttpGet("{pageNumber}/{pageSize}")]
         public IActionResult Get(int pageNumber, int pageSize)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(pageNumber.ToString());
-            sb.AppendLine(pageSize.ToString());
             try
             {
                 var clientes = ClientesHandler.GetAll(out int totalPages, pageNumber, pageSize);
@@ -39,11 +36,8 @@ namespace api.Properties.Controllers
             }
             catch (Exception ex)
             {
-                sb.AppendLine(ex.Message);
-                sb.AppendLine(ex.StackTrace);
-                return new ObjectResult(new { err = sb.ToString() } );
-                //Log.Error(null, ex);
-                //throw ex;
+                Log.Error(null, ex);
+                throw ex;
             }
         }
 
