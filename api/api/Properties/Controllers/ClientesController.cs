@@ -8,7 +8,7 @@ using System.Dynamic;
 
 namespace api.Properties.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     public class ClientesController : Controller
     {
