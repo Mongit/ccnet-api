@@ -5,10 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Dynamic;
-using System.Text;
 
 namespace api.Properties.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class ClientesController : Controller
     {
