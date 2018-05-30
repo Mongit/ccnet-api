@@ -62,7 +62,7 @@ namespace api.Properties.Controllers
             try
             {
                 BO.Presupuesto modelUpdated = PresupuestosHandler.Update(id, model.GetBusinessObject());
-                return string.Format("Se modifico exitosamente: {0}, value = {1}", id, modelUpdated);
+                return string.Format("La cotización se modificó exitosamente.");
             }
             catch (Exception ex)
             {
