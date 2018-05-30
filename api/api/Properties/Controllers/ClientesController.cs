@@ -62,8 +62,8 @@ namespace api.Properties.Controllers
         {
             try
             {
-                Guid savedId = ClientesHandler.Save(model.GetBusinessObject());
-                return new ObjectResult(savedId);
+                ClientesHandler.Save(model.GetBusinessObject());
+                return new ObjectResult("Cliente guardado exitosamente");
             }
             catch (Exception ex)
             {
@@ -79,7 +79,7 @@ namespace api.Properties.Controllers
             try
             {
                 BO.Cliente x = ClientesHandler.Update(id, model.GetBusinessObject());
-                return string.Format("Se modifico exitosamente: {0}, value = {1}", id, model.Contacto);
+                return string.Format("El cliente se modificó exitosamente");
             }
             catch (Exception ex)
             {
