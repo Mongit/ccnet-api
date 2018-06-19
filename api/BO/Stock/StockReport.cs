@@ -11,6 +11,7 @@ namespace BO.Stock
         public Guid ProveedorId { get; set; }
         public Guid ReciboId { get; set; }
         public string ProductoNombre { get; set; }
+        public int ProductoFolio { get; set; }
         public string ProveedorEmpresa { get; set; }
         public string ReciboFolio { get; set; }
     }

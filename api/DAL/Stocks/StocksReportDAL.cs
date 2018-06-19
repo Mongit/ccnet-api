@@ -24,6 +24,7 @@ namespace DAL.Stocks
             it.ProveedorId = GetCastValue<Guid>(dr["ProveedorId"]);
             it.ReciboId = GetCastValue<Guid>(dr["ReciboId"]);
             it.ProductoNombre = GetString(dr["prod_Nombre"]);
+            it.ProductoFolio = GetCastValue<int>(dr["prod_Folio"]);
             it.ProveedorEmpresa = GetString(dr["prov_Empresa"]);
             it.ReciboFolio = GetString(dr["r_Folio"]);
 
