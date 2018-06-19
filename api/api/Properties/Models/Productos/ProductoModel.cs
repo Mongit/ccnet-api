@@ -6,6 +6,8 @@ namespace api.Properties.Models.Productos
 {
     public class ProductoModel
     {
+        [JsonProperty(PropertyName = "folio")]
+        public int Folio { get; set; }
         [JsonProperty(PropertyName = "nombre")]
         public string Nombre { get; set; }
         [JsonProperty(PropertyName = "color")]
@@ -18,6 +20,7 @@ namespace api.Properties.Models.Productos
         public Producto GetBusinessObject()
         {
             Producto producto = new Producto();
+            producto.Folio = Folio;
             producto.Nombre = Nombre;
             producto.Color = Color;
             producto.Unidad = Unidad;

@@ -70,6 +70,7 @@ namespace DAL.Productos
         {
             ProductoReport it = new ProductoReport();
             it.Id = GetCastValue<Guid>(dr["Id"]);
+            it.Folio = GetCastValue<int>(dr["Folio"]);
             it.Nombre = GetCastValue<string>(dr["Nombre"]);
             it.Color = GetCastValue<string>(dr["Color"]);
             it.Cantidad = GetCastValue<decimal>(dr["Cantidad"]);

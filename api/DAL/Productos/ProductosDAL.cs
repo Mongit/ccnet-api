@@ -70,6 +70,7 @@ namespace DAL.Productos
         {
             Producto it = new Producto();
             it.Id = GetCastValue<Guid>(dr["Id"]);
+            it.Folio = GetCastValue<int>(dr["Folio"]);
             it.Nombre = GetString(dr["Nombre"]);
             it.Color = GetString(dr["Color"]);
             it.Unidad = GetString(dr["Unidad"]);
@@ -88,7 +89,11 @@ namespace DAL.Productos
             cmd.Parameters.Add(GetParam("@unidad", SqlDbType.VarChar, model.Unidad));
             cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
 
+            cmd.Parameters.Add(GetParamOut("@folio", SqlDbType.Int));
+
             ExecuteNonQuery(cmd);
+
+            model.Folio = (int)cmd.Parameters["@folio"].Value;
 
             return model.Id;
         }
@@ -114,6 +119,7 @@ namespace DAL.Productos
             SqlCommand cmd = NewCommand(SqlQueries.UPDATE_SP, CommandType.StoredProcedure);
 
             cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, id));
+            cmd.Parameters.Add(GetParam("@folio", SqlDbType.Int, model.Folio));
             cmd.Parameters.Add(GetParam("@nombre", SqlDbType.VarChar, model.Nombre));
             cmd.Parameters.Add(GetParam("@color", SqlDbType.VarChar, model.Color));
             cmd.Parameters.Add(GetParam("@unidad", SqlDbType.VarChar, model.Unidad));
