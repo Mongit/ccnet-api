@@ -77,7 +77,7 @@ namespace api.Properties.Controllers.Proveedores
             try
             {
                 Proveedor modelUpdated = ProveedoresHandler.Update(id, model.GetBusinessObject());
-                return string.Format("Se modificó exitosamente la empresa: {0}", modelUpdated.Empresa);
+                return string.Format("Proveedor modificado exitosamente");
             }
             catch (Exception ex)
             {

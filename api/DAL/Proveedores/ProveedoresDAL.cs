@@ -82,10 +82,10 @@ namespace DAL.Proveedores
             cmd.Parameters.Add(GetParam("@id", SqlDbType.UniqueIdentifier, model.Id));
             cmd.Parameters.Add(GetParam("@empresa", SqlDbType.VarChar, model.Empresa));
             cmd.Parameters.Add(GetParam("@contacto", SqlDbType.VarChar, model.Contacto));
-            cmd.Parameters.Add(GetParam("@domicilio", SqlDbType.VarChar, model.Domicilio));
-            cmd.Parameters.Add(GetParam("@telefono", SqlDbType.VarChar, model.Telefono));
-            cmd.Parameters.Add(GetParam("@email", SqlDbType.VarChar, model.Email));
-            cmd.Parameters.Add(GetParam("@horarioAtencion", SqlDbType.VarChar, model.HorarioAtencion));
+            cmd.Parameters.Add(GetParam("@domicilio", SqlDbType.VarChar, (object)model.Domicilio ?? DBNull.Value));
+            cmd.Parameters.Add(GetParam("@telefono", SqlDbType.VarChar, (object)model.Telefono ?? DBNull.Value));
+            cmd.Parameters.Add(GetParam("@email", SqlDbType.VarChar, (object)model.Email ?? DBNull.Value));
+            cmd.Parameters.Add(GetParam("@horarioAtencion", SqlDbType.VarChar, (object)model.HorarioAtencion ?? DBNull.Value));
 
             ExecuteNonQuery(cmd);
             
