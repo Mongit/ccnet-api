@@ -66,8 +66,8 @@ namespace DAL.Proveedores
             cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
             cmd.Parameters.Add(GetParam("@banco", SqlDbType.VarChar, model.Banco));
             cmd.Parameters.Add(GetParam("@titular", SqlDbType.VarChar, model.Titular));
-            cmd.Parameters.Add(GetParam("@clabe", SqlDbType.VarChar, model.CLABE));
-            cmd.Parameters.Add(GetParam("@noCuenta", SqlDbType.VarChar, model.NoCuenta));
+            cmd.Parameters.Add(GetParam("@clabe", SqlDbType.VarChar, (object)model.CLABE ?? DBNull.Value));
+            cmd.Parameters.Add(GetParam("@noCuenta", SqlDbType.VarChar, (object)model.NoCuenta ?? DBNull.Value));
 
             ExecuteNonQuery(cmd);
 
@@ -87,8 +87,8 @@ namespace DAL.Proveedores
             cmd.Parameters.Add(GetParam("@proveedorId", SqlDbType.UniqueIdentifier, model.ProveedorId));
             cmd.Parameters.Add(GetParam("@banco", SqlDbType.VarChar, model.Banco));
             cmd.Parameters.Add(GetParam("@titular", SqlDbType.VarChar, model.Titular));
-            cmd.Parameters.Add(GetParam("@clabe", SqlDbType.VarChar, model.CLABE));
-            cmd.Parameters.Add(GetParam("@noCuenta", SqlDbType.VarChar, model.NoCuenta));
+            cmd.Parameters.Add(GetParam("@clabe", SqlDbType.VarChar, (object)model.CLABE ?? DBNull.Value));
+            cmd.Parameters.Add(GetParam("@noCuenta", SqlDbType.VarChar, (object)model.NoCuenta ?? DBNull.Value));
 
             ExecuteNonQuery(cmd);
 
