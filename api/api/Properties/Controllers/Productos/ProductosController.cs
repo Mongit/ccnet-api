@@ -134,5 +134,19 @@ namespace api.Properties.Controllers.Productos
                 throw ex;
             }
         }
+
+        [HttpGet("Get/One/Producto/Report/{id}")]
+        public IActionResult GetOneReport(Guid id)
+        {
+            try
+            {
+                return new ObjectResult(ProductosHandler.GetOneReport(id));
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

@@ -28,6 +28,37 @@ namespace DAL.Productos
             throw new NotImplementedException();
         }
 
+        public ProductoReport GetOneReport(Guid id)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("REPORT_GETONE_PRODUCTO"))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter productoId = GetParam("@Id", SqlDbType.UniqueIdentifier, id);
+                    cmd.Parameters.Add(productoId);
+
+                    ProductoReport producto = new ProductoReport();
+                    Action<SqlDataReader> action = (dr =>
+                    {
+                        while (dr.Read())
+                        {
+                            producto = Load(dr);
+                        }
+                    });
+
+                    ExecuteDataReader(cmd, action);
+
+                    return producto;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            };
+        }
+
         public IEnumerable<ProductoReport> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             try

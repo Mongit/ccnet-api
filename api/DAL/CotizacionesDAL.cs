@@ -174,5 +174,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public Cotizacion GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

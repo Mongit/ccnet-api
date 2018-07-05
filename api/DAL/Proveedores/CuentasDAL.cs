@@ -39,6 +39,11 @@ namespace DAL.Proveedores
             throw new NotImplementedException();
         }
 
+        public Cuenta GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Cuenta> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

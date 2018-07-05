@@ -98,5 +98,10 @@ namespace DAL.Stocks
                 throw e;
             }
         }
+
+        public StockReport GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

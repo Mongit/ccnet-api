@@ -61,6 +61,11 @@ namespace DAL.Productos
             throw new NotImplementedException();
         }
 
+        public Producto GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Producto> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

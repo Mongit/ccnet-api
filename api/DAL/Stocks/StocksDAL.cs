@@ -28,6 +28,11 @@ namespace DAL.Stocks
             throw new NotImplementedException();
         }
 
+        public Stock GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Stock> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

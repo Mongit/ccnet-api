@@ -137,5 +137,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public Cliente GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

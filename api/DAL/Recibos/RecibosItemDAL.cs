@@ -82,5 +82,10 @@ namespace DAL.Recibos
         {
             throw new NotImplementedException();
         }
+
+        public ReciboItem GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

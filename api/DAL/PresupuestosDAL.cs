@@ -110,5 +110,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public Presupuesto GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

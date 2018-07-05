@@ -129,5 +129,10 @@ namespace DAL.Proveedores
         {
             throw new NotImplementedException();
         }
+
+        public Proveedor GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

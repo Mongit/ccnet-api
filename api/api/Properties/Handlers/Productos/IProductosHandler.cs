@@ -13,5 +13,6 @@ namespace api.Properties.Handlers.Productos
         void Delete(Guid id);
         IEnumerable<Producto> SearchByTerm(String term);
         IEnumerable<ProductoReport> GetReport(out int totalPages, int pageNumber, int pageSize);
+        ProductoReport GetOneReport(Guid id);
     }
 }

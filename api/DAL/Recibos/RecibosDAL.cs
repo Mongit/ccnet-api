@@ -28,6 +28,11 @@ namespace DAL.Recibos
             throw new NotImplementedException();
         }
 
+        public Recibo GetOneReport(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Recibo> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

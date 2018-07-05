@@ -1,5 +1,4 @@
 ﻿using BO;
-using BO.Proveedor;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,6 +13,7 @@ namespace DAL
         int Delete(Guid id);
         Guid Save(TEntity model);
         TEntity Load(SqlDataReader dr);
+        TEntity GetOneReport(Guid id);
 
         void SaveChildren(IEnumerable<TEntity> model);
         int DeleteChildren(Guid parentId);
