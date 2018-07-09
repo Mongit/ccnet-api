@@ -134,5 +134,10 @@ namespace DAL.Proveedores
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Proveedor> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -179,5 +179,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Cotizacion> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

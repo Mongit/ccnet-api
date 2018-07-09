@@ -148,5 +148,19 @@ namespace api.Properties.Controllers.Productos
                 throw ex;
             }
         }
+
+        [HttpGet("Get/Productos/Range/{from}/{to}")]
+        public IActionResult GetRange(int from, int to)
+        {
+            try
+            {
+                return new ObjectResult(ProductosHandler.GetRange(from, to));
+            }
+            catch (Exception ex)
+            {
+                Log.Error(null, ex);
+                throw ex;
+            }
+        }
     }
 }

@@ -103,5 +103,10 @@ namespace DAL.Stocks
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<StockReport> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

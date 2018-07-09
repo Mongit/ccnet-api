@@ -142,5 +142,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Cliente> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

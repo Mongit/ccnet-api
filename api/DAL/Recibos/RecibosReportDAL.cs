@@ -33,6 +33,11 @@ namespace DAL.Recibos
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ReciboReport> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<ReciboReport> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             try

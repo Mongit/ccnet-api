@@ -14,5 +14,6 @@ namespace api.Properties.Handlers.Productos
         IEnumerable<Producto> SearchByTerm(String term);
         IEnumerable<ProductoReport> GetReport(out int totalPages, int pageNumber, int pageSize);
         ProductoReport GetOneReport(Guid id);
+        IEnumerable<ProductoReport> GetRange(int from, int to);
     }
 }

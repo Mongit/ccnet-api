@@ -96,5 +96,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<PresupuestoItem> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

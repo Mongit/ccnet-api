@@ -115,5 +115,10 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Presupuesto> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

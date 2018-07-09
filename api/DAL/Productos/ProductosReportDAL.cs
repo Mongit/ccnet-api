@@ -28,6 +28,39 @@ namespace DAL.Productos
             throw new NotImplementedException();
         }
 
+        public IEnumerable<ProductoReport> GetRange(int from, int to)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("GET_RANGE_OF_PRODUCTOS"))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter fromFolio = GetParam("@From", SqlDbType.Int, from);
+                    SqlParameter toFolio = GetParam("@To", SqlDbType.Int, to);
+                    cmd.Parameters.Add(fromFolio);
+                    cmd.Parameters.Add(toFolio);
+
+                    List<ProductoReport> list = new List<ProductoReport>();
+                    Action<SqlDataReader> action = (dr =>
+                    {
+                        while (dr.Read())
+                        {
+                            list.Add(Load(dr));
+                        }
+                    });
+
+                    ExecuteDataReader(cmd, action);
+
+                    return list;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            };
+        }
+
         public ProductoReport GetOneReport(Guid id)
         {
             try

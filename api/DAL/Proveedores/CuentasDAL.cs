@@ -44,6 +44,11 @@ namespace DAL.Proveedores
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Cuenta> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Cuenta> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

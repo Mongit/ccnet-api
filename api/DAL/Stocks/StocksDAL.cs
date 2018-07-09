@@ -33,6 +33,11 @@ namespace DAL.Stocks
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Stock> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Stock> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();

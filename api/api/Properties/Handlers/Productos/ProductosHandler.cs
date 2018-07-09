@@ -58,5 +58,10 @@ namespace api.Properties.Handlers.Productos
         {
             return ProductosReportDAL.GetOneReport(id);
         }
+
+        public IEnumerable<ProductoReport> GetRange(int from, int to)
+        {
+            return ProductosReportDAL.GetRange(from, to);
+        }
     }
 }

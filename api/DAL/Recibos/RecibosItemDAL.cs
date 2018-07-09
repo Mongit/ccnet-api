@@ -87,5 +87,10 @@ namespace DAL.Recibos
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<ReciboItem> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

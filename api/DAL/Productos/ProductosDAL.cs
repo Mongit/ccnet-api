@@ -66,6 +66,11 @@ namespace DAL.Productos
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Producto> GetRange(int from, int to)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Producto> GetReport(out int totalPages, int pageNumber, int pageSize)
         {
             throw new NotImplementedException();
